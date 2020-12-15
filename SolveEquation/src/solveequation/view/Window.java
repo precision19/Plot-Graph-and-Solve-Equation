@@ -58,6 +58,7 @@ public class Window extends JPanel implements MouseWheelListener, KeyListener, R
                 int dy = e.getY() - mousePt.y;
                 windowX -= dx / (double)WIDTH * windowWidth;
                 windowY += dy / (double)HEIGHT * windowHeight;
+//                System.out.println(windowX + " " + windowY);
                 mousePt = e.getPoint();
                 repaint();
             }
@@ -96,7 +97,7 @@ public class Window extends JPanel implements MouseWheelListener, KeyListener, R
 		g2d.setColor(Color.WHITE);
 		g2d.fillRect(0, 0, WIDTH, HEIGHT);
 
-		synchronized (this) {
+//		synchronized (this) {
 			List<Double> xs = new ArrayList<>();
 			List<Double> ys = new ArrayList<>();
 			
@@ -141,7 +142,7 @@ public class Window extends JPanel implements MouseWheelListener, KeyListener, R
 			
 			g2d.drawString("x", 0, xAxisY - 10);
 			g2d.drawString("y", yAxisX + 10, g2d.getFontMetrics().getHeight() - 20);
-		}
+//		}
 		
 		g.drawImage(buff, 0, 0, null);
 	}

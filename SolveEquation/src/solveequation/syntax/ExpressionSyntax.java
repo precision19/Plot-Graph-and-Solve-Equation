@@ -97,7 +97,7 @@ public class ExpressionSyntax {
                         if(location != -1){
                             TokenString left = tokens.split(0, location);
                             TokenString right = tokens.split(location + 1, tokens.getLength());
-                            ret = new Module(doOrderOfOperations(left), doOrderOfOperations(right));
+                            ret = new Modulo(doOrderOfOperations(left), doOrderOfOperations(right));
                         }
                         else{
                             location = scanFromRightToLeft(tokens, TokenType.RAISED_TO);

@@ -1,10 +1,14 @@
 package solveequation.function;
 
+import java.awt.Color;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import solveequation.expression.Function;
+import solveequation.rounded.RoundedTextField;
 import solveequation.syntax.ExpressionSyntax;
 import solveequation.view.Solve;
 
@@ -28,6 +32,8 @@ public class FindFrame extends javax.swing.JFrame {
         ImageIcon icon;
         icon = new ImageIcon(getClass().getClassLoader().getResource("baseline_superscript_black_18dp.png"));
         setIconImage(icon.getImage());
+        Border roundedBorder = new LineBorder(Color.white, 15, true); // the third parameter - true, says it's round
+        jTextArea1.setBorder(roundedBorder);
 //        Solve solve = new Solve();
 //        JFrame frame = new JFrame("Find Solution");
 //        frame.add(solve);
@@ -43,26 +49,27 @@ public class FindFrame extends javax.swing.JFrame {
             String textBox = jTextField1.getText();
             parser = new ExpressionSyntax();
             Function function = parser.parse(textBox);
-            double x0 = 0.0;
+            double x0 = 0.1;
             double epsilon = 1e-7;
             if(function == null) return;
             double y = function.evaluateAt(x0, yVar, zVar);
             int count = 0; 
-            while(Math.abs(y) > 0.000000001){
+            while(Math.abs(y) > 0.00000000001){
                 double ff = (-function.evaluateAt(x0, yVar, zVar)+ function.evaluateAt(x0+epsilon, yVar, zVar))/epsilon;
                 count++;
                 if(count > 1e7){                   
-                    jTextArea1.setText(jTextArea1.getText() + "Không thể giải phương trình!!!\n");
+                    jTextArea1.setText("Không thể giải phương trình!!!\n");
                     return;
                 }
                 x0 = x0 - function.evaluateAt(x0, yVar, zVar)/ff;
+//                System.out.println(x0);
 //                System.out.println(x0 + " " + y);
                 //System.out.println(x0);
                 y = function.evaluateAt(x0, yVar, zVar);
             }
             DecimalFormat df = new DecimalFormat("#.#######");
             df.setRoundingMode(RoundingMode.CEILING);
-            jTextArea1.setText(jTextArea1.getText() + "Một nghiệm của phương trình " + textBox + " =0 là " + df.format(x0) + "\n");
+            jTextArea1.setText("Một nghiệm của phương trình " + textBox + " = 0 là: \n" + df.format(x0) + "\n");
         }
     
     /**
@@ -74,76 +81,86 @@ public class FindFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new RoundedTextField(15);
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel3 = new javax.swing.JLabel();
+        roundedButton1 = new solveequation.rounded.RoundedButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        jScrollPane2.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(null);
+
+        jTextField1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(80, 190, 460, 50);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nhập vào phương trình  của bạn");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(80, 70, 600, 100);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("= 0");
-
-        jButton1.setText("Find");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(590, 180, 90, 60);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel3.setText("Nhập phương trình:  f(x) = 0");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(730, 180, 500, 230);
+
+        roundedButton1.setBackground(new java.awt.Color(255, 255, 255));
+        roundedButton1.setBorder(null);
+        roundedButton1.setText("Find");
+        roundedButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        roundedButton1.setGradientBackgroundColor(new java.awt.Color(153, 255, 153));
+        roundedButton1.setRounded(true);
+        roundedButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roundedButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(roundedButton1);
+        roundedButton1.setBounds(90, 340, 220, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/find.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 10, 1320, 820);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(81, 81, 81)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,13 +170,14 @@ public class FindFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void roundedButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundedButton1MouseClicked
+        // TODO add your handling code here:
         // TODO add your handling code here:
         String textBox = jTextField1.getText();
        //System.out.println(textBox.length());
        // function = parser.parse(textBox);
        solv();
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_roundedButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -197,12 +215,15 @@ public class FindFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPane1;
+    private solveequation.rounded.RoundedButton roundedButton1;
     // End of variables declaration//GEN-END:variables
 }

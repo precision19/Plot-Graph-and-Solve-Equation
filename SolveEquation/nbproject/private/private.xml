@@ -3,22 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/Control.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/main/Main.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/AbsoluteValue.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Floor.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/view/MainFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/controller/switchcontroller.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/view/RoundedButton.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/QuadraticFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/rounded/RoundedTextField.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Product.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/Equation.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/SolveFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/view/Equation.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Modulo.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/LinearFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/syntax/Error.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/CubicFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Cosecant.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/SquareRoot.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/SolveFrame.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/Linear.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/syntax/ExpressionSyntax.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Ceiling.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/FindFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/view/RoundedPanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Quantity.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/view/Window.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Log.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Quotient.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/Cubic.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Difference.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/Quadratic.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Cotangent.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/rounded/RoundedTextArea.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/NthRoot.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Cosine.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Sine.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/function/CubicFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Power.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Function.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/rounded/RoundedButton.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/expression/Number.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Documents/NetBeansProjects/SolveEquation/src/solveequation/rounded/RoundedBorder.java</file>
         </group>
     </open-files>
 </project-private>

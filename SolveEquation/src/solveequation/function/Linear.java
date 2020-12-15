@@ -1,5 +1,7 @@
 package solveequation.function;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Admin
@@ -49,15 +51,16 @@ public class Linear implements Equation{
     
     
     public void solve(){
+        DecimalFormat df = new DecimalFormat("#.######");
         if(a == 0 && b == 0){
-            message = new Message("Infinity solutions");
+            message = new Message("Phương trình có vô số nghiệm!");
         }
         else if(a == 0 && b != 0){
-            message = new Message("No solutions");
+            message = new Message("Phương trình vô nghiệm!");
         }
         else{
             sol = -b/a;
-            message = new Message("x =  " + sol + "\n");
+            message = new Message(df.format(a) + "x + " + df.format(b) + " = 0\n=> x = " + "-" + df.format(b) + "/" + df.format(a) + "\n=> x =  " + df.format(sol) + "\n");
         }
     }
 }

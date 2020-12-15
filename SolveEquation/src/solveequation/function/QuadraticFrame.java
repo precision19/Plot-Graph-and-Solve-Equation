@@ -1,6 +1,11 @@
 package solveequation.function;
 
+import java.awt.Color;
+import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import solveequation.rounded.RoundedTextField;
 
 /**
  *
@@ -20,6 +25,8 @@ public class QuadraticFrame extends javax.swing.JFrame {
         ImageIcon icon;
         icon = new ImageIcon(getClass().getClassLoader().getResource("baseline_superscript_black_18dp.png"));
         setIconImage(icon.getImage());
+        Border roundedBorder = new LineBorder(Color.white, 15, true); // the third parameter - true, says it's round
+        solveArea.setBorder(roundedBorder);
     }
 
     /**
@@ -33,25 +40,36 @@ public class QuadraticFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        a = new javax.swing.JTextField();
-        b = new javax.swing.JTextField();
-        c = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        a = new RoundedTextField(15);
+        b = new RoundedTextField(15);
+        c = new RoundedTextField(15);
         jScrollPane1 = new javax.swing.JScrollPane();
         solveArea = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        roundedButton1 = new solveequation.rounded.RoundedButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("a  = ");
+        jPanel1.setLayout(null);
 
-        jLabel2.setText("ax^2 + bx + c = 0");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 45)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("a = ");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(130, 180, 120, 50);
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 45)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("b = ");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(130, 250, 90, 58);
 
         a.setBackground(new java.awt.Color(255, 255, 255));
+        a.setFont(new java.awt.Font("Dialog", 0, 30)); // NOI18N
         a.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aMouseClicked(evt);
@@ -62,112 +80,84 @@ public class QuadraticFrame extends javax.swing.JFrame {
                 aActionPerformed(evt);
             }
         });
+        jPanel1.add(a);
+        a.setBounds(240, 190, 150, 40);
 
         b.setBackground(new java.awt.Color(255, 255, 255));
+        b.setFont(new java.awt.Font("Dialog", 0, 30)); // NOI18N
         b.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bActionPerformed(evt);
             }
         });
+        jPanel1.add(b);
+        b.setBounds(240, 260, 150, 40);
 
         c.setBackground(new java.awt.Color(255, 255, 255));
+        c.setFont(new java.awt.Font("Dialog", 0, 30)); // NOI18N
         c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cActionPerformed(evt);
             }
         });
-
-        jButton1.setText("Solve");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(c);
+        c.setBounds(240, 330, 150, 40);
 
         solveArea.setBackground(new java.awt.Color(255, 255, 255));
-        solveArea.setColumns(20);
+        solveArea.setColumns(15);
+        solveArea.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         solveArea.setRows(5);
         jScrollPane1.setViewportView(solveArea);
 
-        jLabel4.setText("c =");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(700, 180, 520, 270);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(b)
-                            .addComponent(a)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(c)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 45)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("c =");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(130, 310, 110, 70);
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 60)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nhập các hệ số");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(110, 80, 450, 77);
+
+        roundedButton1.setBackground(new java.awt.Color(255, 255, 255));
+        roundedButton1.setBorder(null);
+        roundedButton1.setText("Solve");
+        roundedButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        roundedButton1.setGradientBackgroundColor(new java.awt.Color(102, 255, 102));
+        roundedButton1.setRounded(true);
+        roundedButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roundedButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(roundedButton1);
+        roundedButton1.setBounds(120, 400, 190, 60);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/quadratic.jpg"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 6, 1300, 800);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1289, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -190,12 +180,14 @@ public class QuadraticFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void roundedButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundedButton1ActionPerformed
+        // TODO add your handling code here:
+        DecimalFormat df = new DecimalFormat("#.#####");
         String aa = a.getText();
         String bb = b.getText();
         String cc = c.getText();
         if(aa.equals("") || bb.equals("")||cc.equals("")){
-            solveArea.setText(solveArea.getText() + "Hãy nhập tất cả hệ số!!! \n");
+            solveArea.setText("Hãy nhập tất cả hệ số!!! \n");
             return;
         }
         try{
@@ -204,19 +196,17 @@ public class QuadraticFrame extends javax.swing.JFrame {
             double ccc = Double.parseDouble(cc);
             Quadratic quadratic = new Quadratic(aaa, bbb, ccc);
             quadratic.solve();
-            solveArea.setText(solveArea.getText() + aaa + "x^2 + " + bbb + "x + " +  ccc + " = 0" + 
-              "\ndelta = b" 
-              + quadratic.getMessage().getMessage() + "\n");
+            if(aaa==0) {
+                solveArea.setText(quadratic.getMessage().getMessage());
+                return;
+            }
+            solveArea.setText(quadratic.getMessage().getMessage());
         }
         catch(NumberFormatException ex){
             solveequation.syntax.Error e = new solveequation.syntax.Error();
             e.makeError("Số bạn nhập không hợp lệ !!!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_roundedButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,13 +247,14 @@ public class QuadraticFrame extends javax.swing.JFrame {
     private javax.swing.JTextField a;
     private javax.swing.JTextField b;
     private javax.swing.JTextField c;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private solveequation.rounded.RoundedButton roundedButton1;
     private javax.swing.JTextArea solveArea;
     // End of variables declaration//GEN-END:variables
 }

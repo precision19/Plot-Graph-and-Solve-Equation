@@ -4,8 +4,8 @@ package solveequation.expression;
  *
  * @author Admin
  */
-public class Module extends Binary{
-    public Module(Quantity q1, Quantity q2){
+public class Modulo extends Binary{
+    public Modulo(Quantity q1, Quantity q2){
         super(q1, q2);
     }
     public double getValue(){

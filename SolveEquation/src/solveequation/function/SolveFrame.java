@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import solveequation.list.Category;
 import solveequation.view.MainFrame;
-import solveequation.view.RoundedPanel;
+import solveequation.rounded.RoundedPanel;
 
 /**
  *
@@ -27,7 +27,7 @@ public class SolveFrame extends javax.swing.JFrame {
         icon = new ImageIcon(getClass().getClassLoader().getResource("baseline_superscript_black_18dp.png"));
         setIconImage(icon.getImage());
         setTitle("Giải phương trình");
-        this.setSize(1310, 820);
+        this.setSize(1320, 820);
         Control sc = new Control();
         List<Category> li = new ArrayList<>();
         //listItem.add(new Category("Homepage", HomePage, ));
@@ -67,6 +67,9 @@ public class SolveFrame extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1320, 820));
         jPanel1.setLayout(null);
 
+        jpnLinear.setBackground(new java.awt.Color(255, 255, 255));
+        jpnLinear.setForeground(new java.awt.Color(255, 255, 255));
+
         jlbLinear.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jlbLinear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbLinear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/baseline_filter_1_black_18dp.png"))); // NOI18N
@@ -86,19 +89,21 @@ public class SolveFrame extends javax.swing.JFrame {
             jpnLinearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnLinearLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlbLinear, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addComponent(jlbLinear, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jpnLinearLayout.setVerticalGroup(
             jpnLinearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnLinearLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlbLinear, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addComponent(jlbLinear, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel1.add(jpnLinear);
-        jpnLinear.setBounds(70, 450, 250, 160);
+        jpnLinear.setBounds(90, 320, 230, 150);
+
+        jpnQuadratic.setBackground(new java.awt.Color(255, 255, 255));
 
         jlbQuadratic.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jlbQuadratic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,20 +119,28 @@ public class SolveFrame extends javax.swing.JFrame {
         jpnQuadratic.setLayout(jpnQuadraticLayout);
         jpnQuadraticLayout.setHorizontalGroup(
             jpnQuadraticLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbQuadratic, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+            .addGroup(jpnQuadraticLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbQuadratic, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jpnQuadraticLayout.setVerticalGroup(
             jpnQuadraticLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbQuadratic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnQuadraticLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbQuadratic, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(jpnQuadratic);
-        jpnQuadratic.setBounds(380, 450, 240, 160);
+        jpnQuadratic.setBounds(380, 320, 230, 150);
+
+        jpnCubic.setBackground(new java.awt.Color(255, 255, 255));
 
         jlbCubic.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jlbCubic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbCubic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/baseline_filter_3_black_18dp.png"))); // NOI18N
-        jlbCubic.setText("Bậc 3");
+        jlbCubic.setText("Bậc ba");
         jlbCubic.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlbCubicMouseClicked(evt);
@@ -140,16 +153,21 @@ public class SolveFrame extends javax.swing.JFrame {
             jpnCubicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnCubicLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlbCubic, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addComponent(jlbCubic, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnCubicLayout.setVerticalGroup(
             jpnCubicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbCubic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+            .addGroup(jpnCubicLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbCubic, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.add(jpnCubic);
-        jpnCubic.setBounds(700, 450, 230, 160);
+        jpnCubic.setBounds(680, 320, 230, 150);
+
+        jpnFind.setBackground(new java.awt.Color(255, 255, 255));
 
         jlbFind.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jlbFind.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -165,15 +183,18 @@ public class SolveFrame extends javax.swing.JFrame {
         jpnFind.setLayout(jpnFindLayout);
         jpnFindLayout.setHorizontalGroup(
             jpnFindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbFind, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnFindLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbFind, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jpnFindLayout.setVerticalGroup(
             jpnFindLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+            .addComponent(jlbFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
 
         jPanel1.add(jpnFind);
-        jpnFind.setBounds(1000, 450, 220, 160);
+        jpnFind.setBounds(970, 320, 230, 150);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -186,21 +207,21 @@ public class SolveFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 70, 110, 30);
+        jLabel2.setBounds(10, 160, 110, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/solve.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/solvee.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(-30, -20, 1310, 780);
+        jLabel1.setBounds(-20, 0, 1310, 800);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1332, Short.MAX_VALUE)
+            .addGap(0, 1309, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1297, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -242,11 +263,9 @@ public class SolveFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbLinearMouseExited
 
     private void jlbLinearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbLinearMouseClicked
-        LinearFrame lp = new LinearFrame();
-        lp.setVisible(true);
-        lp.setDefaultCloseOperation(lp.DISPOSE_ON_CLOSE);
-
-        //        Background bg = new Background();
+        LinearFrame lf = new LinearFrame();
+        lf.setVisible(true);
+        lf.setDefaultCloseOperation(lf.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jlbLinearMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

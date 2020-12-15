@@ -9,8 +9,13 @@ public class Quotient extends Binary{
         super(q1, q2);
     }
     public double getValue(){
-        double val1 = realValue(q1);
-        double val2 = realValue(q2);
-        return val1/val2;
+        try{
+            double val1 = realValue(q1);
+            double val2 = realValue(q2);
+            return val1/val2;
+        }
+        catch(ArithmeticException e){
+            return 1e9;
+        }
     }
 }

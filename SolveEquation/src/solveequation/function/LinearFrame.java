@@ -1,6 +1,12 @@
 package solveequation.function;
 
+import java.awt.Color;
+import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import solveequation.rounded.RoundedTextArea;
+import solveequation.rounded.RoundedTextField;
 import solveequation.syntax.Error;
 
 /**
@@ -14,13 +20,17 @@ public class LinearFrame extends javax.swing.JFrame {
      */
     public LinearFrame() {
         initComponents();
-        this.setResizable(false);
+//        this.setResizable(false);
         this.pack();
         this.setLocationRelativeTo(null);
         this.setTitle("Giải phương trình bậc nhất");
         ImageIcon icon;
         icon = new ImageIcon(getClass().getClassLoader().getResource("baseline_superscript_black_18dp.png"));
         setIconImage(icon.getImage());
+        Border roundedBorder = new LineBorder(Color.white, 15, true); // the third parameter - true, says it's round
+        solveArea.setBorder(roundedBorder);
+
+//        jScrollPane1.setBorder(null);
     }
 
     /**
@@ -34,29 +44,33 @@ public class LinearFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        a = new javax.swing.JTextField();
-        b = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        a = new RoundedTextField(150);
+        b = new RoundedTextField(15);
         jScrollPane1 = new javax.swing.JScrollPane();
         solveArea = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
+        roundedButton1 = new solveequation.rounded.RoundedButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setText("a  = ");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 45)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("a = ");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(120, 180, 94, 62);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/Untitled.jpg"))); // NOI18N
-        jLabel2.setText("ax + b = 0");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 45)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("b = ");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(120, 280, 77, 47);
 
         a.setBackground(new java.awt.Color(255, 255, 255));
         a.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
@@ -70,6 +84,8 @@ public class LinearFrame extends javax.swing.JFrame {
                 aActionPerformed(evt);
             }
         });
+        jPanel1.add(a);
+        a.setBounds(210, 190, 160, 50);
 
         b.setBackground(new java.awt.Color(255, 255, 255));
         b.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
@@ -78,92 +94,61 @@ public class LinearFrame extends javax.swing.JFrame {
                 bActionPerformed(evt);
             }
         });
-
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton1.setText("Solve");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(b);
+        b.setBounds(210, 280, 160, 50);
 
         solveArea.setBackground(new java.awt.Color(255, 255, 255));
-        solveArea.setColumns(20);
-        solveArea.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        solveArea.setColumns(15);
+        solveArea.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         solveArea.setRows(5);
+        solveArea.setBorder(null);
+        solveArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(solveArea);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 72)); // NOI18N
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(670, 200, 500, 250);
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 60)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Nhập các hệ số");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(-10, 20, 669, 179);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(212, 212, 212)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(61, 61, 61))
-        );
+        roundedButton1.setBackground(new java.awt.Color(255, 255, 255));
+        roundedButton1.setBorder(null);
+        roundedButton1.setText("Solve");
+        roundedButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        roundedButton1.setGradientBackgroundColor(new java.awt.Color(153, 255, 255));
+        roundedButton1.setRounded(true);
+        roundedButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roundedButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(roundedButton1);
+        roundedButton1.setBounds(120, 380, 190, 60);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solveequation/image/linear.jpg"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 0, 1300, 815);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1308, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -182,11 +167,13 @@ public class LinearFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void roundedButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundedButton1ActionPerformed
+        // TODO add your handling code here:
+        DecimalFormat df = new DecimalFormat("#.#####");
         String aa = a.getText();
         String bb = b.getText();
         if(aa.equals("") || bb.equals("")){
-            solveArea.setText(solveArea.getText() + "Hãy nhập tất cả hệ số!!! \n");
+            solveArea.setText("Hãy nhập tất cả hệ số!!! \n");
             return;
         }
         try{
@@ -196,13 +183,13 @@ public class LinearFrame extends javax.swing.JFrame {
 //            solveArea.setText(solveArea.getText() + "=> x = -" + bbb + "/" + aaa);
             linear.solve();
 
-            solveArea.setText(solveArea.getText() + aaa + "x + " + bbb + " = 0" + "\n=> x = -" + bbb + "/" + aaa + "\n=>"  + linear.getMessage().getMessage() + "\n");
+            solveArea.setText(linear.getMessage().getMessage() + "\n");
         }
         catch(NumberFormatException ex){
             Error e = new Error();
             e.makeError("Số bạn nhập không hợp lệ !!!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_roundedButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,13 +229,13 @@ public class LinearFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField a;
     private javax.swing.JTextField b;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private solveequation.rounded.RoundedButton roundedButton1;
     private javax.swing.JTextArea solveArea;
     // End of variables declaration//GEN-END:variables
 }

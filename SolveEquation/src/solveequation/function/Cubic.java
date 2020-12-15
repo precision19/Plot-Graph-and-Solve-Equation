@@ -1,5 +1,7 @@
 package solveequation.function;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Admin
@@ -83,6 +85,7 @@ public class Cubic implements Equation{
     
     
     public void solve(){
+        DecimalFormat df = new DecimalFormat("#.######");
         if(a == 0){
            Quadratic quad = new Quadratic(b, c, d);
            quad.solve();
@@ -92,41 +95,33 @@ public class Cubic implements Equation{
         else{
             double delta = b*b - 3*a*c;
             double k = (9*a*b*c - 2*b*b*b - 27*a*a*d)/2/Math.sqrt(Math.abs(delta)*delta*delta);
-            System.out.println(k);
+//            System.out.println(k);
+            
             if(delta > 0){
                 if(Math.abs(k) <= 1){
-                    sol1 = (2*Math.sqrt(delta)*Math.cos(Math.acos(k)/3)-b)/3/a;
-                    sol1 = Math.round(sol1 * 1000000000.0) / 1000000000.0;
-                    sol2 = (2*Math.sqrt(delta)*Math.cos(Math.acos(k)/3 - 2*Math.PI/3)-b)/3/a;
-                    sol2 = Math.round(sol2 * 1000000000.0) / 1000000000.0;
-                    sol3 = (2*Math.sqrt(delta)*Math.cos(Math.acos(k)/3 + 2*Math.PI/3)+b)/3/a;
-                    sol3 = Math.round(sol3 * 1000000000.0) / 1000000000.0;
-                    message = new Message("\nx1 = " + sol1 + "\nx2 = " + sol2 + "\nx3 = " + sol3);
+                    sol1 = (2.0*Math.sqrt(delta)*Math.cos(Math.acos(k)/3)-b)/3/a;
+                    sol2 = (2.0*Math.sqrt(delta)*Math.cos(Math.acos(k)/3 - 2*Math.PI/3)-b)/3/a;
+                    sol3 = (2.0*Math.sqrt(delta)*Math.cos(Math.acos(k)/3 + 2*Math.PI/3)-b)/3/a;
+                    message = new Message("∆ = " + df.format(delta) + " > 0\nk = " + df.format(k) + "\n|k| <= 1"
+                            + "\nPhương trình có 3 nghiệm phân biệt: \nx1 = " + df.format(sol1) + 
+                            "\nx2 = " + df.format(sol2) + "\nx3 = " + df.format(sol3));
                 }
                 else{
                     sol1 = Math.sqrt(delta)*Math.abs(k)/3/a/k*(Math.cbrt((Math.abs(k) + Math.sqrt(k*k-1))) 
                             + Math.cbrt((Math.abs(k) - Math.sqrt(k*k-1)))) - b/3/a;
-                    message = new Message("\nx = " + sol1);
+                    message = new Message("∆ = " + df.format(delta) + " > 0\nk = " + df.format(k) + "\n|k| > 1"
+                            + "\nPhương trình có 1 nghiệm duy nhất: \nx = " + df.format(sol1));
                 }
             }
             else if(delta == 0){
-                if(b*b*b-27*a*a*d == 0){
-                    sol1 = -b/3/a;
-                    
-                    sol1 = Math.round(sol1 * 1000000000.0) / 1000000000.0;
-                    message = new Message("\nx = " + sol1);
-                }
-                else{
-                    sol1 = (-b+Math.pow(b*b*b-27*a*a*d, 1/3))/3/a;                    
-                    sol1 = Math.round(sol1 * 1000000000.0) / 1000000000.0;
-                    message = new Message("\nx = " + sol1);
-                }
+                sol1 = (-b+Math.pow(b*b*b-27*a*a*d, 1/3))/3/a;                    
+                message = new Message("∆ = 0\nPhương trình có một nghiệm: \nx = " + df.format(sol1));
             }   
             else{
                 sol1 = Math.sqrt(-delta)/3/a*(Math.cbrt((k + Math.sqrt(k*k+1))) 
                             + Math.cbrt((k - Math.sqrt(k*k+1)))) - b/3/a;
-                sol1 = Math.round(sol1 * 1000000000.0) / 1000000000.0;
-                message = new Message("\nx = " + sol1);
+                message = new Message("∆ = " + df.format(delta) + " < 0, k = " + df.format(k)
+                            + "\nPhương trình có 1 nghiệm duy nhất: \nx = " + df.format(sol1));
             }
         }
     }

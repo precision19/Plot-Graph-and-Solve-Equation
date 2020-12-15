@@ -1,4 +1,4 @@
-package solveequation.view;
+package solveequation.rounded;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
